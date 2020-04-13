@@ -1,6 +1,6 @@
-import os
-
 from flask import Flask, render_template, Response
+
+import settings
 
 from kafka import consumer
 
@@ -21,4 +21,4 @@ def get_messages():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host=os.environ["APP_HOST"], port=os.environ["APP_PORT"])
+    app.run(debug=True, host=settings.APP_HOST, port=settings.APP_PORT)

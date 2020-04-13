@@ -1,11 +1,13 @@
-from pykafka import KafkaClient
+import settings
+
+from kafka import utils
 
 
 class Producer:
-    TOPIC_NAME = "bus"
+    TOPIC_NAME = settings.TOPIC_NAME
 
     def __init__(self):
-        client = KafkaClient(hosts="localhost:9092")
+        client = utils.get_client()
         topic = client.topics[self.TOPIC_NAME]
         self._producer = topic.get_sync_producer()
 

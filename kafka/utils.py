@@ -1,9 +1,9 @@
-import os
-
 import pykafka
+
+import settings
 
 
 def get_client() -> pykafka.KafkaClient:
     return pykafka.KafkaClient(
-        hosts=f'{os.environ["KAFKA_HOST"]}:{os.environ["KAFKA_PORT"]}'
+        hosts=f'{settings.KAFKA_HOST}:{settings.KAFKA_PORT}'
     )
